@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
   <meta name="theme-color" content="#ff7f73">
-  <title>Kucci Tucci — Room Creator</title>
+  <title>Kucci Tucci Room Designer</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="assets/icon.svg">
   <link rel="stylesheet" href="styles.css">
@@ -36,14 +36,12 @@
       <section class="room-wrap" aria-label="Your room">
         <div id="room" class="room theme-peach">
           <div class="room-bg" id="roomBg"></div>
-          <div class="wall-finish" id="wallFinish" aria-hidden="true"><i class="wall-left"></i><i class="wall-right"></i><i class="wall-top"></i><i class="wall-bottom"></i></div>
           <div id="placedItems" class="placed-items"></div>
           <div class="drop-hint" id="dropHint">Tap to add • press and drag to move</div>
         </div>
         <div class="room-controls">
           <button id="sceneBtn">🏡 <span>Scenes</span></button>
           <button id="timeBtn">🌙 <span>Night</span></button>
-          <button id="wallBtn">🎨 <span>Walls</span></button>
           <button id="clearBtn">🧹 <span>Clear</span></button>
           <button id="resetBtn">↺ <span>Reset</span></button>
           <button id="snapshotBtn">📸 <span>Snapshot</span></button>
@@ -54,18 +52,22 @@
 
   <div id="selectionBar" class="selection-bar" hidden>
     <span id="selectedName" title="Drag this handle to move the controls">Item</span>
-    <button data-action="back" aria-label="Send backward" title="Send backward">↓</button>
-    <button data-action="front" aria-label="Bring forward" title="Bring forward">↑</button>
-    <button data-action="rotate-left" aria-label="Rotate counter-clockwise" title="Rotate counter-clockwise">↺</button>
-    <button data-action="rotate" aria-label="Rotate clockwise" title="Rotate clockwise">↻</button>
-    <button data-action="smaller" aria-label="Make smaller" title="Make object smaller">−</button>
-    <button data-action="larger" aria-label="Make larger" title="Make object larger">＋</button>
-    <button data-action="face-west" aria-label="Face west" title="Turn object to face west">◀</button>
-    <button data-action="face-forward" aria-label="Face forward" title="Turn object to face forward">◆</button>
-    <button data-action="face-east" aria-label="Face east" title="Turn object to face east">▶</button>
-    <button data-action="customize" aria-label="Customize" title="Customize colors or character">🎨</button>
-    <button data-action="duplicate" aria-label="Duplicate" title="Copy object">⧉</button>
-    <button data-action="delete" class="danger" aria-label="Delete" title="Delete object">✕</button>
+    <div class="selection-actions">
+      <div class="control-row">
+        <button data-action="back" aria-label="Send backward" title="Send backward">↓</button>
+        <button data-action="front" aria-label="Bring forward" title="Bring forward">↑</button>
+        <button data-action="rotate-left" aria-label="Rotate counter-clockwise" title="Rotate counter-clockwise">↺</button>
+        <button data-action="rotate" aria-label="Rotate clockwise" title="Rotate clockwise">↻</button>
+      </div>
+      <div class="control-row">
+        <button data-action="face-west" aria-label="Face west" title="Turn object to face west">◀</button>
+        <button data-action="face-forward" aria-label="Face forward" title="Turn object to face forward">◆</button>
+        <button data-action="face-east" aria-label="Face east" title="Turn object to face east">▶</button>
+        <button data-action="customize" aria-label="Customize colors" title="Customize colors">🎨</button>
+        <button data-action="duplicate" aria-label="Duplicate" title="Copy object">⧉</button>
+        <button data-action="delete" class="danger" aria-label="Delete" title="Delete object">✕</button>
+      </div>
+    </div>
   </div>
 
   <div id="welcome" class="modal-backdrop welcome open" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
@@ -131,40 +133,14 @@
     </section>
   </div>
 
-  <div id="wallModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="wallTitle">
-    <section class="style-card">
-      <button class="close-modal" data-close="wallModal" aria-label="Close">×</button>
-      <p class="eyebrow">ROOM STUDIO</p>
-      <h2 id="wallTitle">Style the walls</h2>
-      <fieldset><legend>Wall color</legend><div id="wallColors" class="swatches roomy-swatches"></div></fieldset>
-      <fieldset><legend>Wall pattern</legend><div id="wallPatterns" class="pattern-grid"></div></fieldset>
-    </section>
-  </div>
-
   <div id="customizeModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="customizeTitle">
     <section class="style-card character-card">
       <button class="close-modal" data-close="customizeModal" aria-label="Close">×</button>
-      <p class="eyebrow">STYLE STUDIO</p>
-      <h2 id="customizeTitle">Customize this object</h2>
+      <p class="eyebrow">FURNITURE COLORS</p>
+      <h2 id="customizeTitle">Recolor furniture</h2>
       <div id="objectStylePanel">
-        <p>Choose an exact color for the selected object.</p>
+        <p>Choose a soft color. It blends with the original shading and texture.</p>
         <div id="objectColors" class="swatches roomy-swatches"></div>
-      </div>
-      <div id="characterStylePanel" hidden>
-        <div class="character-form-grid">
-          <label>Eyes<select id="charEyes"><option value="round">Round</option><option value="sparkle">Sparkle</option><option value="smile">Smiling</option></select></label>
-          <label>Eyebrows<select id="charBrows"><option value="soft">Soft</option><option value="arched">Arched</option><option value="straight">Straight</option></select></label>
-          <label>Nose<select id="charNose"><option value="dot">Button</option><option value="soft">Soft</option><option value="tiny">Tiny</option></select></label>
-          <label>Ears<select id="charEars"><option value="round">Round</option><option value="small">Small</option><option value="heart">Heart</option></select></label>
-          <label>Mouth<select id="charMouth"><option value="smile">Smile</option><option value="open">Happy open</option><option value="tiny">Tiny smile</option></select></label>
-          <label>Hair style<select id="charHair"><option value="original">Original</option><option value="bob">Bob</option><option value="long">Long</option><option value="buns">Buns</option><option value="ponytail">Ponytail</option></select></label>
-          <label>Eye color<input id="charEyeColor" type="color" value="#4a2d2a"></label>
-          <label>Eyebrow color<input id="charBrowColor" type="color" value="#5b352c"></label>
-          <label>Hair color<input id="charHairColor" type="color" value="#5b352c"></label>
-          <label>Season<select id="charSeason"><option value="spring">Spring</option><option value="summer">Summer</option><option value="fall">Fall</option><option value="winter">Winter</option></select></label>
-          <label>Outfit<select id="charOutfit"><option value="play">Play outfit</option><option value="dress">Dressy outfit</option><option value="cozy">Cozy outfit</option></select></label>
-          <label>Shoes<select id="charShoes"><option value="sneakers">Sneakers</option><option value="sandals">Sandals</option><option value="boots">Boots</option></select></label>
-        </div>
       </div>
       <button id="applyCustomizeBtn" class="primary-btn">Apply changes</button>
     </section>
