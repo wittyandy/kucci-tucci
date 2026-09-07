@@ -6,6 +6,8 @@ This GitHub-ready package teaches young creators to build an original room-decor
 
 Open `index.html` to view the tutorial. Select **Play the complete game** to open the included demo.
 
+The demo welcome screen includes a fail-safe **Design a room** action, so entering the game does not depend on audio initialization or the larger game script finishing successfully.
+
 ## Publish on GitHub Pages
 
 1. Create a public GitHub repository named `kucci-tucci`.
