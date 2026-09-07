@@ -1,0 +1,7 @@
+const CACHE='kucci-tucci-tutorial-demo-v2';
+const OBJECTS=['sofa','bed','table','lamp','plant','rug','poster','cat','dog','rabbit','turtle','sofa-blue','sofa-floral','bed-canopy','bed-modern','table-desk','table-coffee','chair-shell','chair-bean','books-stack','books-basket','toy-bear','toy-blocks','kucci','tucci'];
+const DIRECTIONS=OBJECTS.flatMap(name=>['west','east'].map(direction=>`assets/art/directions/${name}-${direction}.webp`));
+const FILES=['./','index.html','styles.css','app.js','assets-data.js','manifest.webmanifest','assets/icon.svg','assets/kucci-tucci-reference.png','assets/art/room-city.webp','assets/art/room-suburban.webp','assets/art/room-coastal.webp','assets/art/room-desert.webp','assets/art/room-city-night.webp','assets/art/room-suburban-night.webp','assets/art/room-coastal-night.webp','assets/art/room-desert-night.webp',...OBJECTS.map(name=>`assets/art/${name}.webp`),'assets/art/kucci-tucci-logo.webp',...DIRECTIONS];
+self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES)).then(()=>self.skipWaiting())));
+self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',event=>event.respondWith(caches.match(event.request).then(response=>response||fetch(event.request))));

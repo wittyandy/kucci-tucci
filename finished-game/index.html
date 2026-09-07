@@ -77,7 +77,7 @@
         <p class="eyebrow">WELCOME TO</p>
         <h1 id="welcomeTitle">Kucci <span>Tucci</span></h1>
         <p>Create furniture, style a cozy home, or snap a photo of your own room and give it a playful makeover.</p>
-        <button id="playBtn" class="primary-btn">Design a room <span>→</span></button>
+        <button id="playBtn" class="primary-btn" type="button">Design a room <span>→</span></button>
         <p class="tiny">Works with touch, mouse, and keyboard • Sound begins after you tap play • Your room stays on this device</p>
       </div>
     </section>
@@ -131,6 +131,14 @@
   </div>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script>
+    // Fail-safe entry: the welcome screen always opens the room, even if a later
+    // asset, audio, or browser-compatibility problem prevents app.js from loading.
+    document.getElementById('playBtn').addEventListener('click', function () {
+      document.getElementById('welcome').classList.remove('open');
+      document.getElementById('room').focus();
+    });
+  </script>
   <script src="assets-data.js"></script>
   <script src="app.js"></script>
 </body>
