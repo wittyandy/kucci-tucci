@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Build an original room-decorating browser game in six kid-friendly versions with free AI tools.">
+  <title>Make Kucci Tucci</title>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <a class="skip-link" href="#versions">Skip to the six versions</a>
+  <header class="hero" id="top">
+    <nav class="topbar" aria-label="Main navigation">
+      <a class="brand" href="#top"><img class="brand-logo" src="site-assets/logo.webp" alt=""> Kucci Tucci</a>
+      <div class="nav-links"><a href="#start">Set up</a><a href="#versions">Build</a><a href="#create">Imagine</a><a href="#publish">Publish</a></div>
+    </nav>
+    <div class="hero-content">
+      <div>
+        <p class="eyebrow">A make-it-yourself room game</p>
+        <h1>Build a Kucci Tucci Room Design Game with help from AI</h1>
+        <p class="hero-copy">Build your own Kucci Tucci room design game from an empty folder. Use simple everyday words to create a room, movable furniture, characters, pets, sounds, and anything else you imagine. No paid software or paid AI plan is required.</p>
+        <div class="hero-actions"><a class="button primary" href="#start">Start the tutorial</a><a class="button secondary" href="finished-game/index.html" target="_blank" rel="noopener">Play the complete game</a></div>
+      </div>
+      <div class="hero-art room-hero" aria-label="Kucci and Tucci in a pastel room">
+        <img class="room-preview" src="site-assets/room-city.webp" alt="Pastel city room">
+        <div class="friend-pair"><img src="site-assets/kucci.webp" alt="Kucci"><img src="site-assets/tucci.webp" alt="Tucci"></div>
+        <img class="floating-item floating-sofa" src="site-assets/sofa.webp" alt="">
+        <img class="floating-item floating-lamp" src="site-assets/lamp.webp" alt="">
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section tools" id="start">
+      <div class="section-heading"><p class="eyebrow">Step 1: Choose a free helper</p><h2>You only need one AI tool</h2><p>Use Visual Studio Code for the game files. Then choose either ChatGPT Free or GitHub Copilot Free. Both paths use the same six prompts.</p></div>
+      <div class="tool-downloads three-tools">
+        <a class="tool-card vscode-card" href="https://code.visualstudio.com/download" target="_blank" rel="noopener"><span class="tool-icon">&lt;/&gt;</span><span><small>Free editor</small><strong>Visual Studio Code</strong><em>Open and save game files →</em></span></a>
+        <a class="tool-card chatgpt-card" href="https://chatgpt.com/" target="_blank" rel="noopener"><span class="tool-icon">✦</span><span><small>Choice A</small><strong>ChatGPT Free</strong><em>Ask for complete files →</em></span></a>
+        <a class="tool-card copilot-card" href="https://docs.github.com/en/copilot/get-started/plans" target="_blank" rel="noopener"><span class="tool-icon">⌁</span><span><small>Choice B</small><strong>Copilot Free</strong><em>Build inside VS Code →</em></span></a>
+      </div>
+      <div class="adult-note"><strong>Adult setup is required for younger students.</strong><p>ChatGPT and GitHub require users to be at least 13. Students under 13 should not create their own accounts. A parent, guardian, or teacher should operate the account and supervise the activity. Students can still invent, describe, test, and improve the game.</p><p><a href="https://openai.com/policies/terms-of-use/" target="_blank" rel="noopener">OpenAI terms</a> · <a href="https://docs.github.com/en/site-policy/github-terms/github-terms-of-service" target="_blank" rel="noopener">GitHub terms</a></p></div>
+      <div class="path-grid">
+        <article><h3>Using ChatGPT Free</h3><ol><li>Open ChatGPT with an adult.</li><li>Paste one version prompt.</li><li>Ask for the complete contents of each file.</li><li>Copy each answer into the matching file in VS Code.</li><li>Save and test before continuing.</li></ol></article>
+        <article><h3>Using Copilot Free</h3><ol><li>Install VS Code and sign in with an adult-managed GitHub account.</li><li>Open Copilot Chat and choose Agent mode when available.</li><li>Open the parent project folder.</li><li>Paste one version prompt and review its changes.</li><li>Test before asking for the next version.</li></ol></article>
+      </div>
+      <aside class="tip"><strong>Free plans have usage limits.</strong> Work on one version at a time. Keep prompts short, test carefully, and wait for the limit to reset instead of paying. The tutorial never requires a paid feature.</aside>
+    </section>
+
+    <section class="section intro" id="folder">
+      <div class="section-heading"><p class="eyebrow">Step 2: Begin with nothing</p><h2>Protect every version that works</h2><p>Create one empty folder named <code>kucci-tucci</code>. Each prompt creates a complete new version. Never change an older working version.</p></div>
+      <div class="setup-grid">
+        <div class="folder-card"><h3>Your project journey</h3><pre>kucci-tucci/
+  version-1/
+  version-2/
+  version-3/
+  version-4/
+  version-5/
+  version-6/</pre></div>
+        <div class="file-jobs"><div><span>1</span><p><strong>Ask</strong>Describe one useful group of changes.</p></div><div><span>2</span><p><strong>Build</strong>Let AI create or update the new version.</p></div><div><span>3</span><p><strong>Try</strong>Open <code>index.html</code> and test every change.</p></div><div><span>4</span><p><strong>Keep</strong>Move on only when the version works.</p></div></div>
+      </div>
+      <aside class="tip"><strong>Three files make the first game.</strong> <code>index.html</code> holds the page, <code>styles.css</code> controls appearance, and <code>game.js</code> controls actions. Later versions add an <code>assets</code> folder for your original SVG pictures.</aside>
+    </section>
+
+    <section class="section asking">
+      <div class="section-heading compact"><p class="eyebrow">Talking with AI</p><h2>Use your own words</h2><p>A good request says what you are making, what should change, what must stay working, and what you will test.</p></div>
+      <ol class="work-cycle"><li><span>Imagine</span>Draw or describe your idea.</li><li><span>Ask</span>Give AI one clear request.</li><li><span>Play</span>Try every new action.</li><li><span>Improve</span>Explain one problem at a time.</li></ol>
+    </section>
+
+    <section class="section versions" id="versions">
+      <div class="section-heading"><p class="eyebrow">Your six-version journey</p><h2>Build one part at a time</h2><p>Copy one prompt, build that version, and use its checklist. Mark it finished only after it works.</p></div>
+      <div class="adventure-progress"><div class="progress-copy"><span id="progress-count">0 of 6 versions finished</span><strong id="progress-cheer">Your design adventure starts here!</strong></div><div class="progress-track"><span id="progress-fill"></span></div><div class="progress-paws" aria-hidden="true"><span>🏠</span><span>🛋️</span><span>🎨</span><span>🌆</span><span>♫</span><span>📱</span></div></div>
+
+      <article class="version-card version-one" id="version-1"><div class="version-side"><span>Version</span><strong>1</strong></div><div class="version-main">
+        <div class="version-title"><div><p class="tag">The first room</p><h3>Make a page and add objects</h3></div><img class="version-picture" src="site-assets/sofa.webp" alt="Pastel sofa"><label class="done"><input type="checkbox" data-version="1"> Finished</label></div>
+        <div class="folder-action"><span>📂</span><p><strong>Start with the empty parent folder</strong>AI creates <code>version-1</code> and its three files.</p></div>
+        <ul class="changes"><li>Pastel room</li><li>Small catalog</li><li>Click to add</li><li>Clear button</li></ul>
+        <div class="prompt-box"><div class="prompt-top"><strong>Prompt for ChatGPT or Copilot</strong><button class="copy-button">Copy prompt</button></div><blockquote>I opened an empty folder named kucci-tucci. Create a folder named version-1 and make a simple browser room-decorating game inside it. Create index.html, styles.css, and game.js and connect them. Call the game My Dream Room. Show a large pastel room and a small catalog with a sofa, table, lamp, plant, rug, and bed drawn with simple CSS shapes. When I click an object, add it to the room. Add a Clear button. Make everything original and do not copy artwork or code from another game. Create the complete files directly if you can. If you cannot edit files, give me the complete contents of each file with a clear file name. Tell me how to open and test version-1.</blockquote></div>
+        <details><summary>What should I test?</summary><ul><li>All three files are inside version-1.</li><li>The room and six catalog objects appear.</li><li>Every object can be added.</li><li>Clear removes all placed objects.</li></ul></details>
+      </div></article>
+
+      <article class="version-card version-two" id="version-2"><div class="version-side"><span>Version</span><strong>2</strong></div><div class="version-main">
+        <div class="version-title"><div><p class="tag">Move and arrange</p><h3>Drag, select, and control objects</h3></div><img class="version-picture" src="site-assets/lamp.webp" alt="Pastel lamp"><label class="done"><input type="checkbox" data-version="2"> Finished</label></div>
+        <div class="folder-action"><span>📁</span><p><strong>Copy version-1 into version-2</strong>Change only the new folder.</p></div>
+        <ul class="changes"><li>Mouse and touch drag</li><li>Selection outline</li><li>Rotate and delete</li><li>Copy and layers</li></ul>
+        <div class="prompt-box"><div class="prompt-top"><strong>Prompt for ChatGPT or Copilot</strong><button class="copy-button">Copy prompt</button></div><blockquote>My project has a working version-1. Copy all of version-1 into a new folder named version-2. Change only version-2. Let players drag every object with a mouse or finger and keep objects inside the room. When an object is selected, show a boundary around the whole object and floating buttons for rotate left, rotate right, copy, bring forward, send backward, and delete. Hide the selection when the player clicks empty space. Keep adding and clearing objects working. Make the layout usable with a keyboard too. Create or update the complete files directly if you can. Otherwise give me each complete changed file. Tell me what to test.</blockquote></div>
+        <details><summary>What should I test?</summary><ul><li>Drag every object by mouse and touch.</li><li>Select and deselect an object.</li><li>Try every object-control button.</li><li>Make sure no object leaves the room.</li></ul></details>
+      </div></article>
+
+      <article class="version-card version-three" id="version-3"><div class="version-side"><span>Version</span><strong>3</strong></div><div class="version-main">
+        <div class="version-title"><div><p class="tag">Create anything</p><h3>Build an imagination-powered catalog</h3></div><img class="version-picture" src="site-assets/cat.webp" alt="Cartoon cat"><label class="done"><input type="checkbox" data-version="3"> Finished</label></div>
+        <div class="folder-action"><span>🎨</span><p><strong>Copy version-2 into version-3</strong>Add original SVG art with transparent backgrounds.</p></div>
+        <ul class="changes"><li>Object data list</li><li>Scrollable categories</li><li>Original SVG pictures</li><li>Easy object template</li></ul>
+        <div class="prompt-box"><div class="prompt-top"><strong>Prompt for ChatGPT or Copilot</strong><button class="copy-button">Copy prompt</button></div><blockquote>My project has a working version-2. Copy all of version-2 into version-3 and change only version-3. Create an assets folder. Replace the temporary shapes with original pastel cartoon SVG files that have transparent backgrounds. Put all catalog information in one easy object list in game.js with a name, category, image path, width, and height for each item. Add scrollable categories for seats, beds, tables, decorations, characters, pets, books, and toys. Make every full picture fit inside its catalog card above its name. Include at least two objects in each category. Keep dragging and all selection controls working. Create the complete files and SVG artwork directly if you can. Otherwise give me each complete file. Tell me how to add one more object later.</blockquote></div>
+        <details><summary>What should I test?</summary><ul><li>Every image has a transparent background.</li><li>Each full object fits above its label.</li><li>Both catalog directions scroll when needed.</li><li>Large furniture is bigger than small decorations in the room.</li></ul></details>
+      </div></article>
+
+      <article class="version-card version-four" id="version-4"><div class="version-side"><span>Version</span><strong>4</strong></div><div class="version-main">
+        <div class="version-title"><div><p class="tag">Make a world</p><h3>Add friends, scenes, and day or night</h3></div><div class="version-picture-group"><img src="site-assets/kucci.webp" alt="Kucci"><img src="site-assets/tucci.webp" alt="Tucci"></div><label class="done"><input type="checkbox" data-version="4"> Finished</label></div>
+        <div class="folder-action"><span>🌆</span><p><strong>Copy version-3 into version-4</strong>Students choose names, looks, places, and pets.</p></div>
+        <ul class="changes"><li>Two original friends</li><li>Four room scenes</li><li>Day and night</li><li>Use my room photo</li></ul>
+        <div class="prompt-box"><div class="prompt-top"><strong>Prompt for ChatGPT or Copilot</strong><button class="copy-button">Copy prompt</button></div><blockquote>My project has a working version-3. Copy it into version-4 and change only version-4. Add two original full-body friend characters named Kucci and Tucci and add a cat, dog, rabbit, and turtle. Create original transparent SVG pictures for them and make their whole bodies fit in the catalog. Add four original room backgrounds named City, Suburban, Coastal, and Desert. Let players switch each scene between day and night. Add a My Room button that lets a player choose a photo from the device and use it only inside the browser as the room background. Do not upload the photo. Keep every earlier feature working. Create or update all complete files directly if you can. Otherwise give me each complete changed file. Tell me what to test on a computer and phone.</blockquote></div>
+        <details><summary>What should I test?</summary><ul><li>Characters and pets show their complete bodies.</li><li>All four scenes work in day and night.</li><li>A chosen room photo stays on the device.</li><li>Objects still move correctly over every background.</li></ul></details>
+      </div></article>
+
+      <article class="version-card version-five" id="version-5"><div class="version-side"><span>Version</span><strong>5</strong></div><div class="version-main">
+        <div class="version-title"><div><p class="tag">Remember and share</p><h3>Add save, Snapshot, music, and sounds</h3></div><img class="version-picture" src="site-assets/room-city.webp" alt="Pastel room"><label class="done"><input type="checkbox" data-version="5"> Finished</label></div>
+        <div class="folder-action"><span>📸</span><p><strong>Copy version-4 into version-5</strong>Make the design easy to save and fun to hear.</p></div>
+        <ul class="changes"><li>Save and undo</li><li>PNG Snapshot</li><li>Scene music</li><li>Action sounds</li></ul>
+        <div class="prompt-box"><div class="prompt-top"><strong>Prompt for ChatGPT or Copilot</strong><button class="copy-button">Copy prompt</button></div><blockquote>My project has a working version-4. Copy it into version-5 and change only version-5. Add Save and Undo buttons. Save the room in localStorage so it returns after the browser is reopened. Add a Snapshot button that downloads the room and all placed objects as one PNG image, including when index.html is opened directly from the folder. Add a Sound On or Off button. Create cute calm background music with the Web Audio API so no sound files are needed. Give every scene a different day tune and a calmer night tune. Add clear sounds for clicking, adding, picking up, placing, rotating, copying, changing direction, deleting, clearing, and taking a Snapshot. Keep everything else working. Create or update all complete files directly if you can. Otherwise give me each complete changed file and a test list.</blockquote></div>
+        <details><summary>What should I test?</summary><ul><li>Save, refresh, and find the same room.</li><li>Undo several kinds of changes.</li><li>Download Snapshots with and without objects.</li><li>Test every sound and the mute button.</li></ul></details>
+      </div></article>
+
+      <article class="version-card version-six" id="version-6"><div class="version-side"><span>Version</span><strong>6</strong></div><div class="version-main">
+        <div class="version-title"><div><p class="tag">Play anywhere</p><h3>Fit computers and smartphones</h3></div><img class="version-picture phone-picture" src="site-assets/logo.webp" alt="Kucci Tucci logo"><label class="done"><input type="checkbox" data-version="6"> Finished</label></div>
+        <div class="folder-action"><span>📱</span><p><strong>Copy version-5 into version-6</strong>Finish with responsive layout and a complete test.</p></div>
+        <ul class="changes"><li>Full-screen room</li><li>Scrollable catalog</li><li>Wrapped controls</li><li>Phone touch test</li></ul>
+        <div class="prompt-box"><div class="prompt-top"><strong>Prompt for ChatGPT or Copilot</strong><button class="copy-button">Copy prompt</button></div><blockquote>My project has a working version-5. Copy it into version-6 and change only version-6. Make the room fill almost the entire game area at every browser size. Keep the furniture catalog as a left overlay that can collapse, scroll up and down, and scroll left and right. Let desktop players resize the catalog. Make the category row scroll sideways. Keep the scene, day or night, clear, and Snapshot buttons fully visible by wrapping them on narrow screens. Make touch targets large enough for children. Prevent dragging game objects from scrolling the page. Test that every catalog picture fits, every selected boundary covers the whole object, and Snapshot still downloads a PNG. Keep every earlier feature. Create or update all complete files directly if you can. Otherwise give me each complete changed file. Give me a final computer and smartphone checklist.</blockquote></div>
+        <details><summary>Final test</summary><ul><li>Try wide, narrow, tall, and landscape windows.</li><li>Scroll and resize the catalog.</li><li>Drag characters, furniture, books, rugs, and pets.</li><li>Use every floating and bottom control.</li><li>Save and download a Snapshot.</li><li>Open the GitHub Pages link on a real phone.</li></ul></details>
+      </div></article>
+    </section>
+
+    <section class="section customize" id="create">
+      <div class="section-heading"><p class="eyebrow">Make it completely yours</p><h2>Describe any object you imagine</h2><p>You do not need special art software. Ask AI to write an original SVG picture. SVG is image code: it stays sharp, uses a transparent background, and is easy to recolor.</p></div>
+      <div class="settings-demo">
+        <div class="code-window"><div class="code-window-top"><span></span><span></span><span></span><strong>My object idea</strong></div><pre><code>Name: Star Cloud Bed
+Category: Beds
+Shape: Puffy cloud
+Colors: Lavender and cream
+Special detail: Gold star pillows
+Room size: Large
+Faces: Front, west, and east</code></pre></div>
+        <div class="setting-cards"><div><span>🛋️</span><p><strong>Furniture</strong>Sofa, bed, desk, shelf, tent, or treehouse.</p></div><div><span>🦊</span><p><strong>Friends</strong>People, pets, robots, dragons, or imaginary creatures.</p></div><div><span>🧸</span><p><strong>Small things</strong>Books, food, toys, art, plants, and treasures.</p></div><div><span>🌌</span><p><strong>Places</strong>Space station, forest, castle, café, or underwater home.</p></div></div>
+      </div>
+      <div class="prompt-box light creation-prompt"><div class="prompt-top"><strong>Reusable “make my object” prompt</strong><button class="copy-button">Copy prompt</button></div><blockquote>I want to add an original object to my room game. It is a [OBJECT] named [NAME]. It belongs in the [CATEGORY] category. It should look [SHAPE AND DETAILS] and use [COLORS]. Please create a complete SVG file with a transparent background. Make the whole object fit inside the SVG viewBox with a little empty space around every edge. Do not copy an existing brand or character. Add it to the object list in game.js with a room size that makes sense compared with the other objects. Make front, west-facing, and east-facing SVG versions if direction matters. Keep every existing object and feature working. Tell me the new file names and three things to test.</blockquote></div>
+      <div class="change-grid">
+        <article><img src="site-assets/kucci.webp" alt="Kucci"><div><h3>Invent your own characters</h3><p>Choose a name, age, hairstyle, outfit, favorite colors, personality, and three favorite activities. Avoid using private information about a real child.</p></div></article>
+        <article><img src="site-assets/cat.webp" alt="Cat"><div><h3>Give objects actions</h3><p>Try “the lamp glows when clicked,” “the cat curls up on a rug,” or “the toy box opens and closes.” Add one action, test it, then add another.</p></div></article>
+      </div>
+      <aside class="safe-change"><strong>The one-change rule</strong><span>Add one object or action, save, refresh, and test. If it works, keep it. If it breaks, return to the last version or use the repair prompt below.</span></aside>
+    </section>
+
+    <section class="section help" id="help"><div class="section-heading compact"><p class="eyebrow">When something breaks</p><h2>Explain what you saw</h2></div><div class="prompt-box light"><div class="prompt-top"><strong>Problem-solving prompt</strong><button class="copy-button">Copy prompt</button></div><blockquote>I am making a room-decorating browser game. When I [SAY WHAT YOU DID], the game [SAY WHAT HAPPENED]. I expected [SAY WHAT SHOULD HAPPEN]. Here are my current files. Find the cause, keep every working feature, and give me the complete corrected file or files. Explain the problem in one short sentence and give me three quick tests. Do not rewrite unrelated parts of the game.</blockquote></div></section>
+
+    <section class="section publish" id="publish">
+      <div class="section-heading"><p class="eyebrow">Share it for free</p><h2>Publish with GitHub Pages</h2><p>An adult should handle the GitHub account and public posting. Do not publish a child's full name, photo, school, address, or other private information.</p></div>
+      <ol class="publish-steps"><li><strong>Create the repository.</strong> On GitHub, create a public repository named <code>kucci-tucci</code>.</li><li><strong>Upload this package.</strong> Unzip it and upload everything inside. Keep this landing-page <code>index.html</code> at the top level.</li><li><strong>Turn on Pages.</strong> Open <strong>Settings → Pages</strong>, choose <strong>Deploy from a branch</strong>, then choose <strong>main</strong> and <strong>/(root)</strong>.</li><li><strong>Visit the site.</strong> The address will usually be <code>https://YOUR-USERNAME.github.io/kucci-tucci/</code>.</li></ol>
+      <div class="git-note"><strong>If Copilot helps with Git:</strong> ask it to check whether Git user name and email are configured before the first commit. Do not paste passwords or access tokens into AI chat. The GitHub website upload method above does not require terminal commands.</div>
+      <div class="finish-panel"><img src="site-assets/tucci.webp" alt="Tucci"><div><p class="eyebrow">See where you are headed</p><h2>Play the complete Kucci Tucci demo</h2><p>Explore the finished room designer, then return and invent a game that feels like yours.</p><a class="button primary" href="finished-game/index.html" target="_blank" rel="noopener">Play the complete game</a></div></div>
+    </section>
+  </main>
+  <footer><p>Made for learning, imagining, testing, and creating together.</p><a href="#top">Back to top ↑</a></footer>
+  <div class="copy-message" role="status" aria-live="polite"></div>
+  <script src="site.js"></script>
+</body>
+</html>

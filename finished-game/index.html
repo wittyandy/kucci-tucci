@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="theme-color" content="#ff7f73">
+  <title>Kucci Tucci — Room Creator</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <button class="brand" id="homeBtn" aria-label="Open welcome screen"><img class="brand-faces" src="assets/art/kucci-tucci-logo.webp" alt=""><span>Kucci Tucci</span></button>
+      <div class="room-name-wrap"><span aria-hidden="true">✦</span><input id="roomName" value="My Happy Room" maxlength="28" aria-label="Room name"><span aria-hidden="true">✦</span></div>
+      <nav class="top-actions" aria-label="Room actions">
+        <button id="soundBtn" class="icon-btn" title="Sound on or off" aria-label="Turn sound on or off">♪</button>
+        <button id="undoBtn" class="icon-btn" title="Undo" aria-label="Undo">↶</button>
+        <button id="saveBtn" class="pill-btn"><span>♥</span> Save</button>
+        <button id="exportBtn" class="pill-btn secondary" title="Save room as a PNG image"><span>📸</span><span class="wide-label"> Snapshot</span></button>
+        <button id="photoBtn" class="pill-btn secondary"><span>📷</span><span class="wide-label"> My Room</span></button>
+        <input id="photoInput" type="file" accept="image/*" capture="environment" hidden>
+      </nav>
+    </header>
+
+    <main class="game-shell">
+      <aside class="catalog" aria-label="Furniture catalog">
+        <div id="catalogResize" class="catalog-resize" title="Drag to resize catalog" aria-label="Drag to resize catalog"></div>
+        <div class="catalog-title"><span>Decorate</span><button id="catalogToggle" aria-label="Close furniture catalog" aria-expanded="true">‹</button></div>
+        <div id="categories" class="categories" role="tablist"></div>
+        <div id="catalogItems" class="catalog-items"></div>
+        <button id="makerBtn" class="maker-btn"><span>＋</span> Make furniture</button>
+      </aside>
+
+      <section class="room-wrap" aria-label="Your room">
+        <div id="room" class="room theme-peach">
+          <div class="room-bg" id="roomBg">
+            <div class="window"><div class="sun"></div><i></i><b></b></div>
+            <div class="shelf"><span></span><span></span><span></span></div>
+            <div class="baseboard"></div>
+            <div class="floor-lines"></div>
+          </div>
+          <div id="placedItems" class="placed-items"></div>
+          <div class="drop-hint" id="dropHint">Tap to add • press and drag to move</div>
+        </div>
+        <div class="room-controls">
+          <button id="sceneBtn">🏡 <span>Scenes</span></button>
+          <button id="timeBtn">🌙 <span>Night</span></button>
+          <button id="clearBtn">🧹 <span>Clear</span></button>
+          <button id="snapshotBtn">📸 <span>Snapshot</span></button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="selectionBar" class="selection-bar" hidden>
+    <span id="selectedName" title="Drag this handle to move the controls">Item</span>
+    <button data-action="back" aria-label="Send backward" title="Send backward">↓</button>
+    <button data-action="front" aria-label="Bring forward" title="Bring forward">↑</button>
+    <button data-action="rotate-left" aria-label="Rotate counter-clockwise" title="Rotate counter-clockwise">↺</button>
+    <button data-action="rotate" aria-label="Rotate clockwise" title="Rotate clockwise">↻</button>
+    <button data-action="face-west" aria-label="Face west" title="Turn object to face west">◀</button>
+    <button data-action="face-forward" aria-label="Face forward" title="Turn object to face forward">◆</button>
+    <button data-action="face-east" aria-label="Face east" title="Turn object to face east">▶</button>
+    <button data-action="duplicate" aria-label="Duplicate" title="Copy object">⧉</button>
+    <button data-action="delete" class="danger" aria-label="Delete" title="Delete object">✕</button>
+  </div>
+
+  <div id="welcome" class="modal-backdrop welcome open" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+    <section class="welcome-card">
+      <button class="close-modal" data-close="welcome" aria-label="Close">×</button>
+      <div class="welcome-art">
+        <img src="assets/kucci-tucci-reference.png" alt="Kucci and Tucci">
+      </div>
+      <div class="welcome-copy">
+        <p class="eyebrow">WELCOME TO</p>
+        <h1 id="welcomeTitle">Kucci <span>Tucci</span></h1>
+        <p>Create furniture, style a cozy home, or snap a photo of your own room and give it a playful makeover.</p>
+        <button id="playBtn" class="primary-btn">Design a room <span>→</span></button>
+        <p class="tiny">Works with touch, mouse, and keyboard • Sound begins after you tap play • Your room stays on this device</p>
+      </div>
+    </section>
+  </div>
+
+  <div id="makerModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="makerTitle">
+    <section class="maker-card">
+      <button class="close-modal" data-close="makerModal" aria-label="Close">×</button>
+      <div>
+        <p class="eyebrow">FURNITURE STUDIO</p>
+        <h2 id="makerTitle">Make something new</h2>
+        <p>Choose a shape and make it yours.</p>
+      </div>
+      <div class="maker-layout">
+        <div id="makerPreview" class="maker-preview"></div>
+        <div class="maker-options">
+          <fieldset><legend>What are we making?</legend><div id="makerTypes" class="option-grid"></div></fieldset>
+          <fieldset><legend>Pick a color</legend><div id="makerColors" class="swatches"></div></fieldset>
+          <label class="name-label">Give it a name<input id="makerName" maxlength="18" value="My creation"></label>
+        </div>
+      </div>
+      <button id="createBtn" class="primary-btn">Create &amp; place <span>✦</span></button>
+    </section>
+  </div>
+
+  <div id="photoModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="photoTitle">
+    <section class="photo-card">
+      <button class="close-modal" data-close="photoModal" aria-label="Close">×</button>
+      <div class="photo-icon">📷</div>
+      <h2 id="photoTitle">Decorate your own room</h2>
+      <p>Take or choose a landscape photo. It stays on this device and becomes the backdrop for your furniture.</p>
+      <button id="choosePhotoBtn" class="primary-btn">Choose or take photo</button>
+      <button id="removePhotoBtn" class="text-btn">Use the illustrated room instead</button>
+      <p class="privacy">For privacy, make sure the photo doesn’t show people, addresses, or personal information.</p>
+    </section>
+  </div>
+
+  <div id="sceneModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="sceneTitle">
+    <section class="scene-card">
+      <button class="close-modal" data-close="sceneModal" aria-label="Close">×</button>
+      <p class="eyebrow">CHOOSE A VIEW</p>
+      <h2 id="sceneTitle">Where should we decorate?</h2>
+      <p>Each room has its own cute, chill soundtrack.</p>
+      <div class="scene-grid">
+        <button class="scene-option" data-scene="city"><img src="assets/art/room-city.webp" alt="Pastel city apartment"><span>🌆 City</span><small>Lo-fi sparkle</small></button>
+        <button class="scene-option" data-scene="suburban"><img src="assets/art/room-suburban.webp" alt="Sunny suburban room"><span>🌳 Suburban</span><small>Sunny daydream</small></button>
+        <button class="scene-option" data-scene="coastal"><img src="assets/art/room-coastal.webp" alt="Airy coastal room"><span>🌊 Coastal</span><small>Ocean breeze</small></button>
+        <button class="scene-option" data-scene="desert"><img src="assets/art/room-desert.webp" alt="Warm desert room"><span>🌵 Desert</span><small>Sunset kalimba</small></button>
+      </div>
+    </section>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="assets-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
