@@ -126,6 +126,7 @@ code { padding: .1rem .3rem; background: rgba(39,103,73,.09); border-radius: 5px
 .version-four { --accent: #9278d8; --accent-dark: #58429a; }
 .version-five { --accent: #e274a3; --accent-dark: #a63c6c; }
 .version-six { --accent: #e19a31; --accent-dark: #8a5312; }
+.version-seven { --accent: #4c9d91; --accent-dark: #285f59; }
 .version-side { display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; background: linear-gradient(160deg, var(--accent), var(--accent-dark)); text-shadow: 0 3px 0 rgba(30,45,50,.16); }
 .version-side span { font-size: .8rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
 .version-side strong { font: 700 4.5rem/1 Georgia, serif; }

@@ -35,7 +35,7 @@ function showMessage(text) {
 
 function updateProgress() {
   const finished = [...boxes].filter((box) => box.checked).length;
-  const cheers = ['Your design adventure starts here!','Your first room is taking shape!','You can arrange a real game!','Your imagination catalog is growing!','Your world has friends and places!','One polished version to go!','You made a complete room game!'];
+  const cheers = ['Your design adventure starts here!','Your first room is taking shape!','You can arrange a real game!','Your imagination catalog is growing!','Your world has friends and places!','Sound and sharing are working!','One creative version to go!','You made a complete room game!'];
   progressCount.textContent = `${finished} of ${boxes.length} versions finished`;
   progressCheer.textContent = cheers[finished];
   progressFill.style.width = `${(finished / boxes.length) * 100}%`;
