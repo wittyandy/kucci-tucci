@@ -28,10 +28,22 @@ An adult should manage accounts and publishing for elementary-age students. Do n
 
 No paid software, AI subscription, web server, build step, or terminal command is required.
 
+## Change starting object sizes manually
+
+Open `finished-game/app.js` in VS Code and search for `function defaultItemScale`. The numbers returned by this function control the size of newly added objects. For example, `if(type==='sofa')return 1.26` controls only the red sofa, the following sofa rule controls the other sofas, and `if(profileTypes.bed.has(type))return 1.4535` controls every bed. A value of `1` means 100 percent, `1.1` means 110 percent, and `0.9` means 90 percent. Save the file, refresh the browser, and add a new copy of the object to see the change; objects already stored in a saved room keep their saved size.
+
+The underlying unscaled object boxes are in `finished-game/styles.css`. Search for selectors such as `.placed.type-sofa`, `.placed.type-sofa-blue`, and `.placed.type-bed`. Change these CSS widths and heights only when you want to change an object's base proportions or resizing box, rather than its normal starting magnification.
+
 ## Finished-demo highlights
 
-- Front, East, and West raster views calibrated by object type: about 80° for sofas and chairs, 30° for beds, and 55–60° for rectangular tables and desks
-- Three extra chairs, small/medium/large rugs, and sheer curtains, blackout curtains, and a Roman blind
-- Universal object resizing, exact-color recoloring, raster wall patterns, and separate Clear and Reset actions
-- Kucci and Tucci customization for facial features, colors, hairstyles, seasonal outfits, and shoes
-- Responsive mouse, keyboard, and touch controls, saved rooms, custom room photos, soundscapes, and downloadable PNG Snapshots
+- Separate Front, East, and West raster views for directional furniture, Kucci, Tucci, and every pet; perspective Front-only rugs
+- Dynamically padded white dotted selection boundaries measured from the exact image displayed on screen, with invisible full-edge resize areas
+- Independent horizontal and vertical stretching plus proportional corner resizing
+- Furniture-only recoloring for sofas, chairs, beds, and tables
+- Rebuilt, fully opaque Scottie and Emi sprites with one clean character per image and enlarged silhouettes inside standard-size mystery icons
+- Carefully calibrated starting sizes—including a 10% smaller red sofa and 5% smaller beds—while every placed object remains freely resizable
+- Full uncropped sofa sprites with tightly trimmed transparent margins and a side-profile Scottie mystery silhouette
+- Three open window coverings—including a raised Roman blind—sized to frame the room window, with their direction and rotation controls removed
+- Animals, toys, and books start 5% larger
+- Complete wrapped object names above compact two-row floating controls
+- Responsive controls, saved rooms, custom room photos, four day/night soundscapes, and downloadable PNG Snapshots
